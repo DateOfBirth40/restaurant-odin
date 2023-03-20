@@ -35,17 +35,12 @@ const sweetPotato = new MenuItem('side', 'Sweet Potato Fries', 'A generous amoun
 const menuArr = [ribRolls, tumbleOnions, friedShrimp, texasBurg, caribBurg, cheeseStk, chipotChicken, dolphinSand, grilledSalmon, surfTurf, lemonTilapia, bakedPotato, frenchFries, sweetPotato];
 console.log(menuArr);
 
-// Create a loop that goes through each element in the array and adds each property of the object to its
-// respective p element in the list div
-// for ex., listItemTitle.textContent = this.name would add 'Grilled Salmon' to the list div
-
 const menu = document.createElement('div');
 const menuList = document.createElement('ul');
 content.appendChild(menu);
 menu.appendChild(menuList);
 
 function createMenuListItem() {
-  // Add classes to these elements eventually for CSS styling
   const menuListItem = document.createElement('li');
   menuListItem.classList.add('menu-list-item');
   const menuListItemDiv = document.createElement('div');
@@ -65,19 +60,12 @@ function createMenuListItem() {
   return [menuListItemName, menuListItemDesc, menuListItemPrice];
 }
 
+// Change this to a for loop
 function addMenuText(arr) {
   arr[0].textContent = this.name;
   arr[1].textContent = this.desc;
   arr[2].textContent = this.price;
 }
-
-// for (const item of menuArr) {
-//   const menuPropArr = createMenuListItem();
-//   // Find a way to separate the menu items by their type and display the type above their subsection
-//   // if (this.type ===  )
-
-//   addMenuText.call(item, menuPropArr);
-// };
 
 // Can use this to filter by type
 // Maybe create a function that accepts item type as a parameter and creates an array of just that type
@@ -91,4 +79,5 @@ export {
   createMenuListItem,
   addMenuText,
   menuArr,
+  menuList,
 };
