@@ -1,12 +1,30 @@
+/* eslint-disable require-jsdoc */
 /* eslint-disable max-len */
+import './style.css';
+
 const content = document.querySelector('#content');
+
+// TABS
+const tabsList = document.createElement('ul');
+const homeTab = document.createElement('li');
+const menuTab = document.createElement('li');
+const contactTab = document.createElement('li');
+tabsList.classList.add('tabs-list');
+homeTab.textContent = 'Home';
+menuTab.textContent = 'Menu';
+contactTab.textContent = 'Contact';
+content.appendChild(tabsList);
+tabsList.appendChild(homeTab);
+tabsList.appendChild(menuTab);
+tabsList.appendChild(contactTab);
+
 const headerTitle = document.createElement('div');
 headerTitle.textContent = 'Flanigan\'s';
 content.appendChild(headerTitle);
 
 // Add the tabs here between the title and the about content
 
-about = document.createElement('div');
+const about = document.createElement('div');
 about.textContent = 'Flanigan\’s is a laidback family-run restaurant anchored by a commitment to exceptional food and drink, warm hospitality, great value, and good fun. A beloved South Florida institution since 1959, the Flanigan\’s name is pretty much synonymous with good times. Flanigan’s welcomes guests from near and far every day of the year, serving continuously from lunch to late night.';
 content.appendChild(about);
 
@@ -45,25 +63,30 @@ const bakedPotato = new MenuItem('side', 'Baked Potato', 'Idaho\'s best, served 
 const frenchFries = new MenuItem('side', 'French Fries', 'A Flanigan\'s signature, 3/4 of a pound of perfectly seasoned curly fries.', '6.99');
 const sweetPotato = new MenuItem('side', 'Sweet Potato Fries', 'A generous amount of the ultimate sweet potato fry, deep-fried, and dusted with cinnamon sugar. Sub side with any sandwich, burger, or entree.........Add $1.99', '7.99');
 
-menuArr = [ribRolls, tumbleOnions, friedShrimp, texasBurg, caribBurg, cheeseStk, chipotChicken, dolphinSand, grilledSalmon, surfTurf, lemonTilapia, bakedPotato, frenchFries, sweetPotato];
+const menuArr = [ribRolls, tumbleOnions, friedShrimp, texasBurg, caribBurg, cheeseStk, chipotChicken, dolphinSand, grilledSalmon, surfTurf, lemonTilapia, bakedPotato, frenchFries, sweetPotato];
 console.log(menuArr);
 
 // Create a loop that goes through each element in the array and adds each property of the object to its
 // respective p element in the list div
 // for ex., listItemTitle.textContent = this.name would add 'Grilled Salmon' to the list div
 
-menu = document.createElement('div');
-menuList = document.createElement('ul');
+const menu = document.createElement('div');
+const menuList = document.createElement('ul');
 content.appendChild(menu);
 menu.appendChild(menuList);
 
 function createMenuListItem() {
   // Add classes to these elements eventually for CSS styling
   const menuListItem = document.createElement('li');
+  menuListItem.classList.add('menu-list-item');
   const menuListItemDiv = document.createElement('div');
+  menuListItemDiv.classList.add('menu-list-item-div');
   const menuListItemName = document.createElement('h3');
+  menuListItemName.classList.add('menu-list-item-name');
   const menuListItemDesc = document.createElement('p');
+  menuListItemDesc.classList.add('menu-list-item-desc');
   const menuListItemPrice = document.createElement('span');
+  menuListItemPrice.classList.add('menu-list-item-price');
 
   menuList.appendChild(menuListItem);
   menuListItem.appendChild(menuListItemDiv);
@@ -81,8 +104,10 @@ function addMenuText(arr) {
 
 for (const item of menuArr) {
   const menuPropArr = createMenuListItem();
+  // Find a way to separate the menu items by their type and display the type above their subsection
+    // if (this.type ===  )
+
   addMenuText.call(item, menuPropArr);
-  console.log(menuPropArr);
 };
 
 // Can use this to filter by type
@@ -91,23 +116,4 @@ const sideItems = menuArr.filter((item) => item.type === 'side');
 console.log(sideItems);
 console.log(menuArr);
 
-// function createMenuListItem() {
-//   const listItem = document.createElement("li");
-//   const name = document.createElement("h3");
-//   const desc = document.createElement("p");
-//   const price = document.createElement("span");
-
-//   listItem.appendChild(name);
-//   listItem.appendChild(desc);
-//   listItem.appendChild(price);
-
-//   const menuPropArr = [name, desc, price];
-
-//   function addMenuText() {
-//     menuPropArr[0].textContent = this.name;
-//     menuPropArr[1].textContent = this.desc;
-//     menuPropArr[2].textContent = this.price;
-//   }
-
-//   return [listItem, addMenuText];
-// }
+// the menuArr array has 5 different item types (starter, burger, sandwich, seafood, and side) within it. these are shown by the "type" property in the MenuItem function. I want to separate each subsection of the menu by these types by changing the for of loop that you sent me in your previous answer. is there a way to add a new header to the DOM between these menu items by reading the object property "type"?
