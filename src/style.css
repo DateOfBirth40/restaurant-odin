@@ -1,0 +1,42 @@
+:root {
+    --green: rgb(40, 95, 67);
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.tabs-list {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tabs-list > * {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.tabs-list > *:hover {
+    color: var(--green);
+    cursor: pointer;
+}
+
+.menu-list-item-div {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.menu-list-item-name {
+    color: var(--green);
+    font-family: 'Tahoma', sans-serif;
+    /* font-weight: bolder; */
+    text-transform: uppercase;
+}
+
+.menu-list-item-price {
+    color: var(--green);
+    font-weight: bold;
+}
