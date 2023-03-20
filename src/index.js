@@ -79,17 +79,35 @@ function addMenuText(arr) {
   arr[2].textContent = this.price;
 }
 
-for (key in menuArr) {
+for (const item of menuArr) {
   const menuPropArr = createMenuListItem();
-  menuArr.forEach((item) => {
-    addMenuText.call(item, menuPropArr);
-  });
+  addMenuText.call(item, menuPropArr);
   console.log(menuPropArr);
-}
-
+};
 
 // Can use this to filter by type
 // Maybe create a function that accepts item type as a parameter and creates an array of just that type
 const sideItems = menuArr.filter((item) => item.type === 'side');
 console.log(sideItems);
 console.log(menuArr);
+
+// function createMenuListItem() {
+//   const listItem = document.createElement("li");
+//   const name = document.createElement("h3");
+//   const desc = document.createElement("p");
+//   const price = document.createElement("span");
+
+//   listItem.appendChild(name);
+//   listItem.appendChild(desc);
+//   listItem.appendChild(price);
+
+//   const menuPropArr = [name, desc, price];
+
+//   function addMenuText() {
+//     menuPropArr[0].textContent = this.name;
+//     menuPropArr[1].textContent = this.desc;
+//     menuPropArr[2].textContent = this.price;
+//   }
+
+//   return [listItem, addMenuText];
+// }
