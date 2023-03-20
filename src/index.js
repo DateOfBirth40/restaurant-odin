@@ -14,10 +14,10 @@ content.appendChild(about);
 // make each li item a flex element and add the title, description, and price
 // find out how to add all objects to an array
 
-function MenuItem(type, name, description, price) {
+function MenuItem(type, name, desc, price) {
   this.type = type;
   this.name = name;
-  this.description = description;
+  this.desc = desc;
   this.price = price;
 };
 
@@ -46,6 +46,7 @@ const frenchFries = new MenuItem('side', 'French Fries', 'A Flanigan\'s signatur
 const sweetPotato = new MenuItem('side', 'Sweet Potato Fries', 'A generous amount of the ultimate sweet potato fry, deep-fried, and dusted with cinnamon sugar. Sub side with any sandwich, burger, or entree.........Add $1.99', '7.99');
 
 menuArr = [ribRolls, tumbleOnions, friedShrimp, texasBurg, caribBurg, cheeseStk, chipotChicken, dolphinSand, grilledSalmon, surfTurf, lemonTilapia, bakedPotato, frenchFries, sweetPotato];
+console.log(menuArr);
 
 // Create a loop that goes through each element in the array and adds each property of the object to its
 // respective p element in the list div
@@ -60,20 +61,32 @@ function createMenuListItem() {
   // Add classes to these elements eventually for CSS styling
   const menuListItem = document.createElement('li');
   const menuListItemDiv = document.createElement('div');
-  const menuListItemName = document.createElement('p');
+  const menuListItemName = document.createElement('h3');
   const menuListItemDesc = document.createElement('p');
-  const menuListItemPrice = document.createElement('p');
+  const menuListItemPrice = document.createElement('span');
 
   menuList.appendChild(menuListItem);
   menuListItem.appendChild(menuListItemDiv);
   menuListItemDiv.appendChild(menuListItemName);
   menuListItemDiv.appendChild(menuListItemDesc);
   menuListItemDiv.appendChild(menuListItemPrice);
+  return [menuListItemName, menuListItemDesc, menuListItemPrice];
 }
 
-// menuArr.forEach(function(parameter) {
+function addMenuText(arr) {
+  arr[0].textContent = this.name;
+  arr[1].textContent = this.desc;
+  arr[2].textContent = this.price;
+}
 
-// });
+for (key in menuArr) {
+  const menuPropArr = createMenuListItem();
+  menuArr.forEach((item) => {
+    addMenuText.call(item, menuPropArr);
+  });
+  console.log(menuPropArr);
+}
+
 
 // Can use this to filter by type
 // Maybe create a function that accepts item type as a parameter and creates an array of just that type
