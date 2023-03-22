@@ -58,7 +58,7 @@ function addLocationText(arr) {
   const properties = [this.name, this.address, this.phone, this.hours, this.img];
   for (let i = 0; i < arr.length; i++) {
     if (properties[i] === this.hours) {
-      arr[i].textContent = 'Every Day: ' + this.hours['open'] + ' AM - ' + this.hours['close'] + ' AM';
+      arr[i].textContent = `Every Day: ${this.hours['open']} AM - ${this.hours['close']} AM`;
     } else if (properties[i] === this.img) {
       arr[i].src = properties[i];
     } else {
