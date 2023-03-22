@@ -1,10 +1,10 @@
 /* eslint-disable require-jsdoc */
 /* eslint-disable max-len */
+import coconutGrovePic from './coconut-grove.png';
 import doralPic from './doral.png';
 import kendallPic from './kendall.png';
 import pinecrestPic from './pinecrest.png';
 import westchesterPic from './westchester.png';
-import coconutGrovePic from './coconut-grove.png';
 
 function Location(name, address, phone, hours, img) {
   this.name = name;
@@ -14,19 +14,20 @@ function Location(name, address, phone, hours, img) {
   this.img = img;
 };
 
+const coconutGrove = new Location('Coconut Grove', '2721 Bird Avenue, Miami, FL 33133', '(305) 446-1114', {open: '11', close: '4:30'}, coconutGrovePic);
 const doral = new Location('Doral', '8695 NW 12th Street, Miami, FL 33126', '(786) 845-9366', {open: '11', close: '1'}, doralPic);
 const kendall = new Location('Kendall', '12790 SW 88th Street, Miami, FL 33186', '(305) 380-0521', {open: '11', close: '1'}, kendallPic);
 const pinecrest = new Location('Pinecrest', '11415 S Dixie Highway, Miami, FL 33156', '(305) 378-4000', {open: '11', close: '1'}, pinecrestPic);
 const westchester = new Location('Westchester', '9857 SW 40th Street, Miami, FL 33165', '(305) 207-7427', {open: '11', close: '1:30'}, westchesterPic);
-const coconutGrove = new Location('Coconut Grove', '2721 Bird Avenue, Miami, FL 33133', '(305) 446-1114', {open: '11', close: '4:30'}, coconutGrovePic);
 
-const locArr = [doral, kendall, pinecrest, westchester, coconutGrove];
+const locArr = [coconutGrove, doral, kendall, pinecrest, westchester];
 
 const locationDiv = document.createElement('div');
 const locationList = document.createElement('ul');
 content.appendChild(locationDiv);
 locationDiv.appendChild(locationList);
 
+// Add get directions button with a link to the address below each location
 function createLocationListItem() {
   const locationListItem = document.createElement('li');
   locationListItem.classList.add('loc-list-item');
@@ -38,7 +39,6 @@ function createLocationListItem() {
   locationListItemAddress.classList.add('loc-list-item-address');
   const locationListItemPhone = document.createElement('p');
   locationListItemPhone.classList.add('loc-list-item-phone');
-  //   Find a way to access the object within the 'hours' property
   const locationListItemHours = document.createElement('p');
   locationListItemHours.classList.add('loc-list-item-hours');
   const locationListItemImg = document.createElement('img');
@@ -67,21 +67,9 @@ function addLocationText(arr) {
   }
 }
 
-// function addMenuText(arr) {
-//   const properties = [this.name, this.desc, this.price];
-//   for (let i = 0; i < arr.length; i++) {
-//     arr[i].textContent = properties[i];
-//   }
-// }
-
 export {
   createLocationListItem,
   addLocationText,
   locArr,
   locationList,
-  doralPic,
-  kendallPic,
-  pinecrestPic,
-  westchesterPic,
-  coconutGrovePic,
 };
