@@ -1,5 +1,10 @@
 /* eslint-disable require-jsdoc */
 /* eslint-disable max-len */
+import doralPic from './doral.png';
+import kendallPic from './kendall.png';
+import pinecrestPic from './pinecrest.png';
+import westchesterPic from './westchester.png';
+import coconutGrovePic from './coconut-grove.png';
 
 function Location(name, address, phone, hours, img) {
   this.name = name;
@@ -9,11 +14,11 @@ function Location(name, address, phone, hours, img) {
   this.img = img;
 };
 
-const doral = new Location('Doral', '8695 NW 12th Street, Miami, FL 33126', '(786) 845-9366', {open: '11', close: '1'}, './doral.png');
-const kendall = new Location('Kendall', '12790 SW 88th Street, Miami, FL 33186', '(305) 380-0521', {open: '11', close: '1'}, './kendall.png');
-const pinecrest = new Location('Pinecrest', '11415 S Dixie Highway, Miami, FL 33156', '(305) 378-4000', {open: '11', close: '1'}, './pinecrest.png');
-const westchester = new Location('Westchester', '9857 SW 40th Street, Miami, FL 33165', '(305) 207-7427', {open: '11', close: '1:30'}, './westchester.png');
-const coconutGrove = new Location('Coconut Grove', '2721 Bird Avenue, Miami, FL 33133', '(305) 446-1114', {open: '11', close: '4:30'}, './coconut-grove.png');
+const doral = new Location('Doral', '8695 NW 12th Street, Miami, FL 33126', '(786) 845-9366', {open: '11', close: '1'}, doralPic);
+const kendall = new Location('Kendall', '12790 SW 88th Street, Miami, FL 33186', '(305) 380-0521', {open: '11', close: '1'}, kendallPic);
+const pinecrest = new Location('Pinecrest', '11415 S Dixie Highway, Miami, FL 33156', '(305) 378-4000', {open: '11', close: '1'}, pinecrestPic);
+const westchester = new Location('Westchester', '9857 SW 40th Street, Miami, FL 33165', '(305) 207-7427', {open: '11', close: '1:30'}, westchesterPic);
+const coconutGrove = new Location('Coconut Grove', '2721 Bird Avenue, Miami, FL 33133', '(305) 446-1114', {open: '11', close: '4:30'}, coconutGrovePic);
 
 const locArr = [doral, kendall, pinecrest, westchester, coconutGrove];
 
@@ -49,18 +54,34 @@ function createLocationListItem() {
   return [locationListItemName, locationListItemAddress, locationListItemPhone, locationListItemHours, locationListItemImg];
 }
 
-// Change this to a for loop
 function addLocationText(arr) {
-  arr[0].textContent = this.name;
-  arr[1].textContent = this.address;
-  arr[2].textContent = this.phone;
-  arr[3].textContent = this.hours;
-//   arr[4].____ = this.img;
+  const properties = [this.name, this.address, this.phone, this.hours, this.img];
+  for (let i = 0; i < arr.length; i++) {
+    if (properties[i] === this.hours) {
+      arr[i].textContent = 'Every Day: ' + this.hours['open'] + ' AM - ' + this.hours['close'] + ' AM';
+    } else if (properties[i] === this.img) {
+      arr[i].src = properties[i];
+    } else {
+      arr[i].textContent = properties[i];
+    }
+  }
 }
+
+// function addMenuText(arr) {
+//   const properties = [this.name, this.desc, this.price];
+//   for (let i = 0; i < arr.length; i++) {
+//     arr[i].textContent = properties[i];
+//   }
+// }
 
 export {
   createLocationListItem,
   addLocationText,
   locArr,
   locationList,
+  doralPic,
+  kendallPic,
+  pinecrestPic,
+  westchesterPic,
+  coconutGrovePic,
 };
