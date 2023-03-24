@@ -54,6 +54,10 @@ instagramImg.src = instagram;
 content.append(instagramLink);
 instagramLink.append(instagramImg);
 
+const sidebar = createMenuSidebar(menuArr);
+
+menuDiv.append(sidebar);
+
 addMenuToDOM();
 addLocationsToDOM();
 // addContactFormtoDOM();
@@ -64,14 +68,24 @@ contactDiv.style.display = 'none';
 homeTab.classList.add('clicked-tab');
 
 function addMenuToDOM() {
-  for (const item of menuArr) {
-    const menuPropArr = createMenuListItem();
-    addMenuText.call(item, menuPropArr);
-  };
+  let filteredMenuArr = [];
+  const sidebarItems = document.querySelectorAll('.sidebar-item');
+  sidebar.addEventListener('click', function(e) {
+    if (e.target.matches('.sidebar-item')) {
+      filteredMenuArr = menuArr.filter((item) => item.type === e.target.id);
+      console.log(e.target.id);
+      for (const item of filteredMenuArr) {
+        // for (const item of menuArr) {
+        const menuPropArr = createMenuListItem();
+        addMenuText.call(item, menuPropArr);
+      };
+      sidebarItems.forEach(function(item) {
+        item.classList .remove('active');
+      });
+      e.target.classList.add('active');
+    }
+  });
 }
-
-const sidebar = createMenuSidebar(menuArr);
-menuDiv.append(sidebar);
 
 function addLocationsToDOM() {
   for (const item of locArr) {
