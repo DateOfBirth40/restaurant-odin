@@ -67,20 +67,23 @@ locationList.style.display = 'none';
 contactDiv.style.display = 'none';
 homeTab.classList.add('clicked-tab');
 
+// This function uses an event listener to detect which item type is selected in the menu
+// and then displays only the objects that match the corresponding item type
 function addMenuToDOM() {
   let filteredMenuArr = [];
   const sidebarItems = document.querySelectorAll('.sidebar-item');
+  const menuList = document.querySelector('.menu-list');
   sidebar.addEventListener('click', function(e) {
     if (e.target.matches('.sidebar-item')) {
       filteredMenuArr = menuArr.filter((item) => item.type === e.target.id);
-      console.log(e.target.id);
+      menuList.innerHTML = '';
       for (const item of filteredMenuArr) {
         // for (const item of menuArr) {
         const menuPropArr = createMenuListItem();
         addMenuText.call(item, menuPropArr);
       };
       sidebarItems.forEach(function(item) {
-        item.classList .remove('active');
+        item.classList.remove('active');
       });
       e.target.classList.add('active');
     }

@@ -7,9 +7,8 @@ contactDiv.classList.add('contact-div');
 const contactMsg = document.createElement('p');
 contactMsg.textContent = 'Our restaurants are open 365 days a year, serving continuously from 11:00 AM to late night. We\'re always fishing for feedback! Please reach out to us with any questions using the form below.  Thanks for stopping by!\r\n';
 
-// For location, access the locArr object to get location names to add to radio
+// For location, access the locArr object to get location names
 const locNames = locArr.map((item) => item.name);
-console.log(locNames);
 
 // Form
 const formDiv = document.createElement('div');
