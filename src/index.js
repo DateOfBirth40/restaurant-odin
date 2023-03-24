@@ -4,7 +4,7 @@ import './style.css';
 import logo from './flanigans-logo.png';
 import twitter from './twitter.svg';
 import instagram from './instagram.svg';
-import {createMenuListItem, addMenuText, menuArr, menuList} from './menu.js';
+import {createMenuListItem, addMenuText, createMenuSidebar, menuArr, menuDiv} from './menu.js';
 import {createLocationListItem, addLocationText, locArr, locationList} from './locations.js';
 import {contactDiv} from './contact.js';
 
@@ -58,7 +58,7 @@ addMenuToDOM();
 addLocationsToDOM();
 // addContactFormtoDOM();
 
-menuList.style.display = 'none';
+menuDiv.style.display = 'none';
 locationList.style.display = 'none';
 contactDiv.style.display = 'none';
 homeTab.classList.add('clicked-tab');
@@ -70,6 +70,9 @@ function addMenuToDOM() {
   };
 }
 
+const sidebar = createMenuSidebar(menuArr);
+menuDiv.append(sidebar);
+
 function addLocationsToDOM() {
   for (const item of locArr) {
     const locPropArr = createLocationListItem();
@@ -79,7 +82,7 @@ function addLocationsToDOM() {
 
 function openHomeTab() {
   about.style.display = 'block';
-  menuList.style.display = 'none';
+  menuDiv.style.display = 'none';
   locationList.style.display = 'none';
   contactDiv.style.display = 'none';
   homeTab.classList.add('clicked-tab');
@@ -90,7 +93,7 @@ function openHomeTab() {
 
 function openMenuTab() {
   about.style.display = 'none';
-  menuList.style.display = 'block';
+  menuDiv.style.display = 'grid';
   locationList.style.display = 'none';
   contactDiv.style.display = 'none';
   homeTab.classList.remove('clicked-tab');
@@ -101,7 +104,7 @@ function openMenuTab() {
 
 function openLocationTab() {
   about.style.display = 'none';
-  menuList.style.display = 'none';
+  menuDiv.style.display = 'none';
   locationList.style.display = 'block';
   contactDiv.style.display = 'none';
   homeTab.classList.remove('clicked-tab');
@@ -112,7 +115,7 @@ function openLocationTab() {
 
 function openContactTab() {
   about.style.display = 'none';
-  menuList.style.display = 'none';
+  menuDiv.style.display = 'none';
   locationList.style.display = 'none';
   contactDiv.style.display = 'flex';
   homeTab.classList.remove('clicked-tab');
