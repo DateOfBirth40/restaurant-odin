@@ -1,6 +1,7 @@
 :root {
     --green: rgb(40, 95, 67);
     --background: rgb(255, 252, 247);
+    --button-hover: rgb(30, 73, 51);
     --form-margin: 10px;
 }
 
@@ -36,17 +37,32 @@
 
 .menu-div {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 0.75fr 2fr;
     grid-template-rows: 1fr;
 }
 
 .sidebar {
     grid-area: 1 / 1 / 1 / 1;
-
+    background-color: var(--green);
+    /* max-width: 200px; */
 }
 
 .sidebar li {
+    background-color: var(--green);
+    color: white;
+    padding: 20px;
+    font-size: 16px;
     text-transform: capitalize;
+    cursor: pointer;
+    /* transition: background 250ms ease-in-out, transform 150ms ease; */
+}
+
+.sidebar li:hover {
+    background-color: var(--button-hover);
+}
+
+.active {
+
 }
 
 .menu-list {
@@ -151,10 +167,11 @@
 
 .form-div > button:hover,
 .form-div > button:focus {
-    background-color: rgb(30, 73, 51);
+    background-color: var(--button-hover);
 }
 
-.form-div > button:focus {
+.form-div > button:focus,
+.active {
     outline: 1px solid white;
     outline-offset: -4px;
 }
