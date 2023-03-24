@@ -52,10 +52,12 @@ console.log(menuArr);
 // const newArr = newArr.push(MenuItem);
 // console.log(newArr);
 
-const menu = document.createElement('div');
+const menuDiv = document.createElement('div');
+menuDiv.classList.add('menu-div');
 const menuList = document.createElement('ul');
-content.appendChild(menu);
-menu.appendChild(menuList);
+menuList.classList.add('menu-list');
+content.appendChild(menuDiv);
+menuDiv.appendChild(menuList);
 
 function createMenuListItem() {
   const menuListItem = document.createElement('li');
@@ -92,6 +94,27 @@ function addMenuText(arr) {
   }
 }
 
+// Create a sidebar that separates the items into their respective categories, only displaying them
+// when their category is active
+// Maybe add an 'active' class to those items that should be shown
+// if item.type === 'starter', element.classList.add('active')
+// Maybe use a filter on the array to only show starter items when clicking starters on sidebar
+function createMenuSidebar(arr) { // Use menuArr
+  const types = new Set();
+  arr.forEach((item) => {
+    types.add(item.type);
+  });
+  const sidebar = document.createElement('ul');
+  sidebar.classList.add('sidebar');
+  types.forEach((type) => {
+    const li = document.createElement('li');
+    li.textContent = type;
+    sidebar.appendChild(li);
+    console.log(li);
+  });
+  return sidebar;
+}
+
 // Can use this to filter by type
 // Maybe create a function that accepts item type as a parameter and creates an array of just that type
 const sideItems = menuArr.filter((item) => item.type === 'side');
@@ -103,6 +126,7 @@ console.log(menuArr);
 export {
   createMenuListItem,
   addMenuText,
+  createMenuSidebar,
   menuArr,
-  menuList,
+  menuDiv,
 };
