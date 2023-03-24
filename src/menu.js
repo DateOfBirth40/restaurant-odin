@@ -47,10 +47,9 @@ const bakedPotato = new MenuItem('side', 'Baked Potato', 'Idaho\'s best, served 
 const frenchFries = new MenuItem('side', 'French Fries', 'A Flanigan\'s signature, 3/4 of a pound of perfectly seasoned curly fries.', '6.99', frenchFriesImg);
 const sweetPotato = new MenuItem('side', 'Sweet Potato Fries', 'A generous amount of the ultimate sweet potato fry, deep-fried, and dusted with cinnamon sugar. Sub side with any sandwich, burger, or entree.........Add $1.99', '7.99', sweetPotatoImg);
 
+// Find a way to automatically add to this array when a new MenuItem is created
+// May need to add a class to menu items to then use .querySelectorAll()
 const menuArr = [ribRolls, tumbleOnions, friedShrimp, texasBurg, caribBurg, cheeseStk, chipotChicken, dolphinSand, grilledSalmon, surfTurf, lemonTilapia, bakedPotato, frenchFries, sweetPotato];
-console.log(menuArr);
-// const newArr = newArr.push(MenuItem);
-// console.log(newArr);
 
 const menuDiv = document.createElement('div');
 menuDiv.classList.add('menu-div');
@@ -83,7 +82,6 @@ function createMenuListItem() {
 }
 
 function addMenuText(arr) {
-  // Find a way to sort through item.type to organize menu with headers
   const properties = [this.name, this.desc, this.price, this.img];
   for (let i = 0; i < arr.length; i++) {
     if (properties[i] === this.img) {
@@ -94,12 +92,7 @@ function addMenuText(arr) {
   }
 }
 
-// Create a sidebar that separates the items into their respective categories, only displaying them
-// when their category is active
-// Maybe add an 'active' class to those items that should be shown
-// if item.type === 'starter', element.classList.add('active')
-// Maybe use a filter on the array to only show starter items when clicking starters on sidebar
-function createMenuSidebar(arr) { // Use menuArr
+function createMenuSidebar(arr) {
   const types = new Set();
   arr.forEach((item) => {
     types.add(item.type);
@@ -108,20 +101,13 @@ function createMenuSidebar(arr) { // Use menuArr
   sidebar.classList.add('sidebar');
   types.forEach((type) => {
     const li = document.createElement('li');
+    li.setAttribute('id', type);
+    li.classList.add('sidebar-item');
     li.textContent = type;
     sidebar.appendChild(li);
-    console.log(li);
   });
   return sidebar;
 }
-
-// Can use this to filter by type
-// Maybe create a function that accepts item type as a parameter and creates an array of just that type
-const sideItems = menuArr.filter((item) => item.type === 'side');
-console.log(sideItems);
-console.log(menuArr);
-
-// the menuArr array has 5 different item types (starter, burger, sandwich, seafood, and side) within it. these are shown by the "type" property in the MenuItem function. I want to separate each subsection of the menu by these types by changing the for of loop that you sent me in your previous answer. is there a way to add a new header to the DOM between these menu items by reading the object property "type"?
 
 export {
   createMenuListItem,
