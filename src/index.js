@@ -1,11 +1,12 @@
 /* eslint-disable require-jsdoc */
 /* eslint-disable max-len */
 import './style.css';
-import logo from './flanigans-logo.png';
-import twitter from './twitter.svg';
-import instagram from './instagram.svg';
+import logo from './images/flanigans-logo.png';
+import twitter from './images/twitter.svg';
+import instagram from './images/instagram.svg';
+import github from './images/github.svg';
 import {createMenuListItem, addMenuText, createMenuSidebar, menuArr, menuDiv} from './menu.js';
-import {createLocationListItem, addLocationText, locArr, locationList} from './locations.js';
+import {createLocationListItem, addLocationText, locArr, locationDiv} from './locations.js';
 import {contactDiv} from './contact.js';
 
 const header = document.querySelector('#header');
@@ -30,42 +31,58 @@ tabsList.appendChild(contactTab);
 
 const headerImage = document.createElement('img');
 headerImage.src = logo;
+headerImage.addEventListener('click', openHomeTab);
+headerImage.style.cursor = 'pointer';
 header.appendChild(headerImage);
 
 const about = document.createElement('div');
 about.textContent = 'Flanigan\'s is a laidback family-run restaurant anchored by a commitment to exceptional food and drink, warm hospitality, great value, and good fun. A beloved South Florida institution since 1959, the Flanigan\'s name is pretty much synonymous with good times. Flanigan\'s welcomes guests from near and far every day of the year, serving continuously from lunch to late night.';
 content.appendChild(about);
 
-const socialMedia = document.createElement('p');
-socialMedia.textContent = 'Follow us on social media!';
-content.append(socialMedia);
+const footer = document.createElement('footer');
+footer.classList.add('footer');
+footer.textContent = 'Follow us on social media!';
+content.append(footer);
 
 const twitterLink = document.createElement('a');
 const twitterImg = document.createElement('img');
 twitterLink.setAttribute('href', 'https://twitter.com/FlanigansFL');
 twitterImg.src = twitter;
-content.append(twitterLink);
+footer.append(twitterLink);
 twitterLink.append(twitterImg);
 
 const instagramLink = document.createElement('a');
 const instagramImg = document.createElement('img');
 instagramLink.setAttribute('href', 'https://www.instagram.com/flanigansfl/?hl=en');
 instagramImg.src = instagram;
-content.append(instagramLink);
+footer.append(instagramLink);
 instagramLink.append(instagramImg);
 
-const sidebar = createMenuSidebar(menuArr);
+const githubLink = document.createElement('a');
+const githubImg = document.createElement('img');
+githubLink.setAttribute('href', 'https://github.com/DateOfBirth40');
+githubImg.src = github;
+footer.append(githubLink);
+githubLink.append(githubImg);
 
+const sidebar = createMenuSidebar(menuArr);
 menuDiv.append(sidebar);
 
 addMenuToDOM();
 addLocationsToDOM();
-// addContactFormtoDOM();
 
 menuDiv.style.display = 'none';
-locationList.style.display = 'none';
+locationDiv.style.display = 'none';
 contactDiv.style.display = 'none';
 homeTab.classList.add('clicked-tab');
+
+// The code below initializes the menu and shows the 'starters' submenu by default
+document.querySelector('#starter').classList.add('active');
+const filteredMenuArr = menuArr.filter((item) => item.type === 'starter');
+for (const item of filteredMenuArr) {
+  const menuPropArr = createMenuListItem();
+  addMenuText.call(item, menuPropArr);
+};
 
 // This function uses an event listener to detect which item type is selected in the menu
 // and then displays only the objects that match the corresponding item type
@@ -78,10 +95,11 @@ function addMenuToDOM() {
       filteredMenuArr = menuArr.filter((item) => item.type === e.target.id);
       menuList.innerHTML = '';
       for (const item of filteredMenuArr) {
-        // for (const item of menuArr) {
         const menuPropArr = createMenuListItem();
         addMenuText.call(item, menuPropArr);
       };
+      // The following code removes the 'active' class from all tabs
+      // and assigns it to the clicked tab
       sidebarItems.forEach(function(item) {
         item.classList.remove('active');
       });
@@ -100,7 +118,7 @@ function addLocationsToDOM() {
 function openHomeTab() {
   about.style.display = 'block';
   menuDiv.style.display = 'none';
-  locationList.style.display = 'none';
+  locationDiv.style.display = 'none';
   contactDiv.style.display = 'none';
   homeTab.classList.add('clicked-tab');
   menuTab.classList.remove('clicked-tab');
@@ -111,7 +129,7 @@ function openHomeTab() {
 function openMenuTab() {
   about.style.display = 'none';
   menuDiv.style.display = 'grid';
-  locationList.style.display = 'none';
+  locationDiv.style.display = 'none';
   contactDiv.style.display = 'none';
   homeTab.classList.remove('clicked-tab');
   menuTab.classList.add('clicked-tab');
@@ -122,7 +140,7 @@ function openMenuTab() {
 function openLocationTab() {
   about.style.display = 'none';
   menuDiv.style.display = 'none';
-  locationList.style.display = 'block';
+  locationDiv.style.display = 'grid';
   contactDiv.style.display = 'none';
   homeTab.classList.remove('clicked-tab');
   menuTab.classList.remove('clicked-tab');
@@ -133,7 +151,7 @@ function openLocationTab() {
 function openContactTab() {
   about.style.display = 'none';
   menuDiv.style.display = 'none';
-  locationList.style.display = 'none';
+  locationDiv.style.display = 'none';
   contactDiv.style.display = 'flex';
   homeTab.classList.remove('clicked-tab');
   menuTab.classList.remove('clicked-tab');
