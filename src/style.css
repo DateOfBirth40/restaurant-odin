@@ -43,7 +43,7 @@
 .sidebar {
     grid-area: 1 / 1 / 1 / 1;
     background-color: var(--green);
-    /* max-width: 200px; */
+    width: 100%;
 }
 
 .sidebar li {
@@ -58,10 +58,6 @@
 
 .sidebar li:hover {
     background-color: var(--button-hover);
-}
-
-.active {
-
 }
 
 /* Change the div to be a flex item with flex-direction: column for when the screen is narrow */
@@ -82,7 +78,7 @@
     grid-area: 1 / 2 / 1 / 2;
 }
 
-.menu-list-item-name, .loc-list-item-name {
+.item-name {
     color: var(--green);
     font-family: 'Tahoma', sans-serif;
     /* font-weight: bolder; */
@@ -107,9 +103,23 @@
     padding-right: 10px;
 }
 
-.loc-list-item-img {
-    height: 200px;
-    width: auto;
+.location-div {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 1fr;
+    align-items: center;
+    gap: 15px;
+}
+
+.location-div div {
+    border: 1px solid #ccc;
+    padding: 20px;
+}  
+
+.location-div div img {
+    height: auto;
+    width: 100%;
 }
 
 .contact-div {
