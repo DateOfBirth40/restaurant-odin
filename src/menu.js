@@ -1,44 +1,50 @@
 /* eslint-disable require-jsdoc */
 /* eslint-disable max-len */
-import ribRollsImg from './rib-rolls.webp';
-import tumbleOnionsImg from './tumbleweed-onions.webp';
-import friedShrimpImg from './firecracker-shrimp.webp';
-import seafoodGumboImg from './seafood-gumbo.webp';
-import clamChowderImg from './clam-chowder.webp';
-import garlicRollsImg from './garlic-rolls.webp';
-import mozzSticksImg from './mozzarella-sticks.webp';
-import potatoSkinsImg from './potato-skins.webp';
-import dolphinFingersImg from './dolphin-fingers.webp';
-import fiveWingsImg from './five-wings.jpeg';
-import tenWingsImg from './ten-wings.webp';
-import twentyWingsImg from './twenty-wings.webp';
-import fiftyWingsImg from './fifty-wings.jpeg';
-import texasBurgImg from './texas-burger.webp';
-import caribBurgImg from './caribbean-burger.webp';
-import bahamaBurgImg from './bahama-burger.webp';
-import bigDaddyBurgImg from './big-daddy-burger.webp';
-import flaniganBurgImg from './flanigan-burger.webp';
-import cheeseStkImg from './cheese-steak.webp';
-import chickenPhilyImg from './chicken-philly.webp';
-import chipotChickenImg from './chipotle-chicken-sandwich.webp';
-import teriyakiChickenImg from './teriyaki-chicken-sandwich.webp';
-import dolphinSandImg from './dolphin-sandwich.webp';
-import salmonSandImg from './salmon-sandwich.webp';
-import grilledSalmonImg from './grilled-salmon.webp';
-import surfTurfImg from './surf-n-turf.webp';
-import lemonTilapiaImg from './tilapia.webp';
-import fishTacosImg from './fish-tacos.webp';
-import tunaFiletImg from './tuna-filet.webp';
-import bakedPotatoImg from './baked-potato.webp';
-import sweetPotatoImg from './sweet-potato.webp';
-import frenchFriesImg from './french-fries.webp';
-import dirtyRiceImg from './dirty-rice.webp';
-import blackBeansImg from './black-beans.webp';
-import banzaiBrownieImg from './banzai-brownie.webp';
-import keyLimeImg from './key-lime.webp';
-import chocCakeImg from './chocolate-ecstacy.webp';
-import dulceLecheImg from './dulce-leche.webp';
-import flanShenanImg from './flanigans-shenanigan.webp';
+import ribRollsImg from './images/rib-rolls.webp';
+import tumbleOnionsImg from './images/tumbleweed-onions.webp';
+import friedShrimpImg from './images/firecracker-shrimp.webp';
+import seafoodGumboImg from './images/seafood-gumbo.webp';
+import clamChowderImg from './images/clam-chowder.webp';
+import garlicRollsImg from './images/garlic-rolls.webp';
+import mozzSticksImg from './images/mozzarella-sticks.webp';
+import potatoSkinsImg from './images/potato-skins.webp';
+import dolphinFingersImg from './images/dolphin-fingers.webp';
+import fiveWingsImg from './images/five-wings.jpeg';
+import tenWingsImg from './images/ten-wings.webp';
+import twentyWingsImg from './images/twenty-wings.webp';
+import fiftyWingsImg from './images/fifty-wings.jpeg';
+import halfRackImg from './images/half-rack.webp';
+import fullRackImg from './images/full-rack.webp';
+import ribWingsImg from './images/rib-wings.webp';
+import ribStickersImg from './images/rib-stickers.webp';
+import ribChickenImg from './images/rib-chicken.webp';
+import ribShrimpImg from './images/rib-shrimp.webp';
+import texasBurgImg from './images/texas-burger.webp';
+import caribBurgImg from './images/caribbean-burger.webp';
+import bahamaBurgImg from './images/bahama-burger.webp';
+import bigDaddyBurgImg from './images/big-daddy-burger.webp';
+import flaniganBurgImg from './images/flanigan-burger.webp';
+import cheeseStkImg from './images/cheese-steak.webp';
+import chickenPhilyImg from './images/chicken-philly.webp';
+import chipotChickenImg from './images/chipotle-chicken-sandwich.webp';
+import teriyakiChickenImg from './images/teriyaki-chicken-sandwich.webp';
+import dolphinSandImg from './images/dolphin-sandwich.webp';
+import salmonSandImg from './images/salmon-sandwich.webp';
+import grilledSalmonImg from './images/grilled-salmon.webp';
+import surfTurfImg from './images/surf-n-turf.webp';
+import lemonTilapiaImg from './images/tilapia.webp';
+import fishTacosImg from './images/fish-tacos.webp';
+import tunaFiletImg from './images/tuna-filet.webp';
+import bakedPotatoImg from './images/baked-potato.webp';
+import sweetPotatoImg from './images/sweet-potato.webp';
+import frenchFriesImg from './images/french-fries.webp';
+import dirtyRiceImg from './images/dirty-rice.webp';
+import blackBeansImg from './images/black-beans.webp';
+import banzaiBrownieImg from './images/banzai-brownie.webp';
+import keyLimeImg from './images/key-lime.webp';
+import chocCakeImg from './images/chocolate-ecstacy.webp';
+import dulceLecheImg from './images/dulce-leche.webp';
+import flanShenanImg from './images/flanigans-shenanigan.webp';
 
 function MenuItem(type, name, desc, price, img) {
   this.type = type;
@@ -65,7 +71,7 @@ const clamChowder = createMenuItem('starter', 'New England Clam Chowder', 'A tas
 const garlicRolls = createMenuItem('starter', 'Garlic Rolls', 'Six cute little golf ball sized rolls, ideal for applying butter and garlic to your chin. While in the general proximity of your mouth, eating is also recommended.', '5.99', garlicRollsImg);
 const mozzSticks = createMenuItem('starter', 'Mozzarella Sticks', 'Str-r-r-r-etch your appetizer! Stringy, but delicious, mozzarella cheese, deep fried just right. Served with Marinara.', '7.99', mozzSticksImg);
 const potatoSkins = createMenuItem('starter', 'Potato Skins', 'The skin of Idaho potatoes, surgically removed and reconstructed with cheddar cheese and bacon bits, to produce melt in your mouth potato skins.', '6.99', potatoSkinsImg);
-const dolphinFingers = createMenuItem('starter', 'Dolphin Fingers', 'A half-pound of dolphin strips, deep fried and served with your choice of cocktail or tartar sauce', '14.77', dolphinFingersImg);
+const dolphinFingers = createMenuItem('starter', 'Dolphin Fingers', 'A half-pound of dolphin strips, deep fried and served with your choice of cocktail or tartar sauce.', '14.77', dolphinFingersImg);
 
 // WINGS
 const fiveWings = createMenuItem('wings', 'Five (5) Wings', 'Available in hot, medium, mild, and barbecue flavors.', '9.99', fiveWingsImg);
@@ -73,7 +79,15 @@ const tenWings = createMenuItem('wings', 'Ten (10) Wings', 'Available in hot, me
 const twentyWings = createMenuItem('wings', 'Twenty (20) Wings', 'Available in hot, medium, mild, and barbecue flavors.', '20.99', twentyWingsImg);
 const fiftyWings = createMenuItem('wings', 'Fifty (50) Wings', 'Available in hot, medium, mild, and barbecue flavors.', '39.99', fiftyWingsImg);
 
-// TEN OUNCE BURGERS
+// RIBS
+const halfRack = createMenuItem('ribs', 'Half-Rack Baby Back Ribs', 'Half-rack of our tender, juicy, "meat-falls-off-the-bone" baby back ribs, drenched with our special barbecue sauce, and grilled to perfection.', '17.99', halfRackImg);
+const fullRack = createMenuItem('ribs', 'Full-Rack Baby Back Ribs', 'Full-rack of our tender, juicy, "meat-falls-off-the-bone" baby back ribs, drenched with our special barbecue sauce, and grilled to perfection.', '22.99', fullRackImg);
+const ribWings = createMenuItem('ribs', 'Half-Rack & Wings', 'Half-rack of our tender, juicy, "meat-falls-off-the-bone" baby back ribs, paired with a half dozen wings.', '21.49', ribWingsImg);
+const ribSticker = createMenuItem('ribs', 'Half-Rack & Stickers', 'Half-rack of our tender, juicy, "meat-falls-off-the-bone" baby back ribs, paired with three chicken stickers.', '21.49', ribStickersImg);
+const ribChicken = createMenuItem('ribs', 'Half-Rack & BBQ Chicken', 'Half-rack of our tender, juicy, "meat-falls-off-the-bone" baby back ribs, paired with a half barbecued chicken.', '21.49', ribChickenImg);
+const ribShrimp = createMenuItem('ribs', 'Half-Rack & Shrimp', 'Half-rack of our tender, juicy, "meat-falls-off-the-bone" baby back ribs, paired with a half dozen fried shrimp.', '21.49', ribShrimpImg);
+
+// BURGERS
 const texasBurg = createMenuItem('burger', 'Texas Burger', 'Crispy bacon, crumbled bleu cheese, a stack of Tumbleweed Onions, all drizzled with our homemade wing sauce.', '12.49', texasBurgImg);
 const caribBurg = createMenuItem('burger', 'Caribbean Burger', 'Flanigan\'s award-winning BBQ sauce, melted cheddar cheese, and two strips of bacon.', '12.49', caribBurgImg);
 const bahamaBurg = createMenuItem('burger', 'Bahama Burger', 'The perfect burger for the "hamburger purist", i.e. no "junk" to get in the way of that fresh beef flavor, charbroiled to perfection.', '11.99', bahamaBurgImg);
@@ -122,7 +136,7 @@ function createMenuListItem() {
   const menuListItemDiv = document.createElement('div');
   menuListItemDiv.classList.add('menu-list-item-div');
   const menuListItemName = document.createElement('h3');
-  menuListItemName.classList.add('menu-list-item-name');
+  menuListItemName.classList.add('item-name');
   const menuListItemDesc = document.createElement('p');
   menuListItemDesc.classList.add('menu-list-item-desc');
   const menuListItemPrice = document.createElement('span');
